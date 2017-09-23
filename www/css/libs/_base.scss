@@ -1,0 +1,254 @@
+$bgcolor:#131a28;
+$color:#fff;
+$linkColor:#fff;
+$hoverColor:#fff;
+$theme-color:#fff;
+$fonts: "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+$fonts-en: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$normal_width:1000px;
+$large_width:1200px;
+$pad_width:780px;
+$mobile_width:580px;
+$min_width:320px;
+
+$img:'../images';
+
+$media_retina: only screen and (-webkit-min-device-pixel-ratio: 1.5),\a
+only screen and (min--moz-device-pixel-ratio: 1.5),\a
+only screen and (-moz-min-device-pixel-ratio: 1.5),\a
+only screen and (-o-min-device-pixel-ratio: 3/2),\a
+only screen and (min-device-pixel-ratio: 1.5);
+
+@mixin background($url, $repeat: no-repeat, $size: null) {
+    background: url(../images/#{$url}) $repeat;
+    @if $size!=null{
+    background-size: $size;
+    }
+}
+
+@mixin opacity($value: 1){
+  $IEValue: $value*100;
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+  filter: alpha(opacity=$IEValue);
+}
+
+@mixin transition($value, $props...){
+    transition:$value;
+    @if $props{
+        transition-property:$props;
+    }
+}
+
+@mixin after-block{
+    position:absolute;
+    content:'';
+    display:block;
+}
+
+@mixin full(){
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+@mixin screen_retina(){
+    @media #{$media_retina} {
+        /*! 高分屏 */
+        @content;
+    }
+}
+
+@mixin screen_large(){
+    @media (min-width: 1300px) and (min-height:750px){
+        @content;
+    }
+}
+
+@mixin screen_medium(){
+    @media (max-width: $pad_width){
+        @content;
+    }
+}
+
+@mixin screen_small(){
+    @media (max-width: $mobile_width){
+        @content;
+    }
+}
+
+
+
+/*! reset css */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/*! HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*! to preserve line-height and selector appearance */
+sup {
+	vertical-align:text-top;
+}
+sub {
+	vertical-align:text-bottom;
+}
+input,
+button,
+textarea,
+select {
+	font-family:$fonts;
+	font-size:inherit;
+	font-weight:inherit;
+	*font-size:100%; /*to enable resizing for IE*/
+	width:auto;
+	overflow:visible;
+}
+legend {
+	color:#000;
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight:normal;
+}
+/*! end reset css */
+html,
+body {
+	height:100%;
+}
+a{
+    color:$linkColor;
+	text-decoration:none;
+	outline:none;
+    &:hover,&:active,&:focus{
+        color:$hoverColor;
+    }
+}
+a,button,input,select,textarea{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+body {
+	background:$bgcolor;
+	color:$color;
+	font-family:$fonts;
+	font-size:16px;
+	line-height:1.6;
+    -webkit-touch-callout:none;
+}
+.wrapper{
+	width:100%;
+	display:block;
+    min-width:$normal_width;
+    @include screen_medium{
+        min-width:$min_width;
+    }
+}
+.main{
+	margin:0 auto;
+    width:$normal_width;
+    @include screen_medium{
+        width:100%;
+        box-sizing:border-box;
+    }
+}
+.alignleft{
+	float:left;
+	display:inline;
+}
+.alignright{
+	float:right;
+	display:inline;
+}
+.clearfix{
+    content:"\200c";
+	display:block;
+	height:0;
+	font-size:0;
+	clear:both;
+}
+.clear{
+	zoom: 1;
+    &:after{
+        @extend .clearfix;
+    }
+}
+.none{
+	display:none;
+	overflow:hidden;
+}
+.full{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.after-block{
+    @include after-block;
+}
+.aninode{
+    visibility:hidden;
+}
+.animated{
+    &,& .aninode{
+        visibility:visible;
+    }
+}
+.no-horizontal{
+    display:none;
+    background:rgba(255,255,255,.9);
+    z-index:10;
+    @extend .full;
+    &:after{
+        @extend .after-block;
+        width:45px;
+        height:89px;
+        background:url(../images/phone.png) no-repeat;
+        background-size:contain;
+        transform-origin:center 100%;
+        animation:scalePhone 5s linear infinite;
+        top:50%;
+        left:50%;
+        margin:-45px 0 0 -23px;
+    }
+}
+

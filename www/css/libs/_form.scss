@@ -1,0 +1,218 @@
+.form-item {
+    margin-bottom: 10px;
+    position: relative;
+}
+.input-wrap {
+    float: left;
+    position: relative;
+    @include screen_medium {
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
+.input-right {
+    float: right;
+}
+.input-text {
+    width: 378px;
+    padding: 3px 10px;
+    outline: none;
+    margin: 0;
+    border: 0;
+    height: 24px;
+    font-size: 13px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    float: left;
+    appearance:none;
+    @include screen_medium {
+        box-sizing: border-box;
+        height: 32px;
+        width: 100%;
+    }
+}
+.input-wrap.half {
+    width: 48%;
+    .input-text {
+        width: 165px;
+    }
+    @include screen_medium {
+        width: 48%;
+        .input-text {
+            width: 100%;
+        }
+    }
+}
+.placeholder {
+    position: absolute;
+    font-size: 13px;
+    color: #aaa;
+    top: 7px;
+    left: 10px;
+}
+.form-error {
+    position: absolute;
+    background: #000;
+    background: rgba(0, 0, 0, .8);
+    padding: 5px 10px;
+    color: #fff;
+    bottom: 100%;
+    margin-bottom: 8px;
+    border-radius: 3px;
+    transform-origin: 12px 100%;
+    animation: scaleIn .4s ease;
+    font-size: 14px;
+    .arrow-tip-down {
+        top: 100%;
+        position: absolute;
+        left: 10px;
+        overflow: hidden;
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-top-color: #000;
+        border-top-color: rgba(0, 0, 0, .8);
+    }
+    a {
+        color: #4e97fa;
+    }
+}
+.form-error-shake {
+    animation: shake .4s ease;
+}
+.input-error {
+    label {
+        color: #fe5656;
+    }
+    .input-tip {
+        color: lighten(#fe5656, 20%);
+    }
+    .input-text {
+        border-color: #fe5656;
+        color: #fe5656;
+    }
+}
+.form-err-tip {
+    color: #fe5656;
+    font-size: 14px;
+    font-weight: bold;
+}
+.btn {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    width:100%;
+    height:30px;
+    border-radius:5px;
+    font-size:14px;
+    @include transition(400ms ease, background, color, opacity);
+    .loading {
+        display: none;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+        margin-right: 4px;
+        @include background('loading.gif', no-repeat);
+    }
+    &:hover{
+        @include opacity(.8);
+    }
+}
+.btn-yellow {
+    background: #f39800;
+    color: #fff;
+}
+.btn-loading {
+    .loading {
+        display: inline;
+        display: inline-block;
+        zoom: 1;
+    }
+}
+
+.Mask {
+    @include full;
+    background: #000;
+    @include opacity(.6);
+    position: fixed;
+    z-index: 100;
+    display: none;
+}
+.Panel {
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    display: none;
+    .content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, .4);
+    }
+    .close {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background: #ff7e00;
+        color: #fff;
+        text-align: center;
+        line-height: 30px;
+        text-shadow: 0 0 3px #aaa;
+        font-size: 18px;
+        top: -8px;
+        right: -8px;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
+    }
+}
+.captcha-form {
+    width: 260px;
+    h3 {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .captcha-input .input-text {
+        width: 238px;
+        border-color:#888;
+    }
+    .captcha-box {
+        position: absolute;
+        right: 2px;
+        top: 2px;
+        height: 28px;
+        width:80px;
+        background:#eee;
+        .captcha-img{
+            width:100%;
+            height:100%;
+        }
+        .captcha-loading{
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin:-10px 0 0 -10px;
+        }
+    }
+    .btn-submit {
+        font-size: 14px;
+        height: 30px;
+        width: 100%;
+        border-radius: 4px;
+    }
+    .form-err-tip {
+        font-size: 14px;
+        text-shadow: none;
+    }
+    .form-meta{
+        color:#888;
+        font-size:12px;
+    }
+    @include screen_medium {
+        .captcha-input .input-text {
+            width: 100%;
+        }
+    }
+}
