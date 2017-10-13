@@ -641,6 +641,21 @@ body {
         padding: 70px 0  70px 0;
         font-size: 12px;
     }
+    h3 {
+        font-size: 16px;
+        margin: 1em;
+        text-align: center;
+    }
+    .link-list {
+        display: flex;
+        align-items: center;
+        width: 650px;
+        margin: 20px auto 40px;
+        .link-item {
+            float: left;
+            flex: 1;
+        }
+    }
     .explain {
         text-align: left;
         float: left;
@@ -663,7 +678,6 @@ body {
     }
     .copyright {
         font-family: sans-serif;
-
     }
 
     @include screen_medium {
