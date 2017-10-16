@@ -967,6 +967,7 @@ body .info-pc {
 }
 
 #footer .link-list {
+    overflow: hidden;
     width: 550px;
     margin: 20px auto 40px;
 }
@@ -992,8 +993,7 @@ body .info-pc {
 }
 
 #footer .explain {
-    float: left;
-    text-align: left;
+    text-align: center;
 }
 
 #footer .explain p {
@@ -1240,7 +1240,7 @@ body .f4 .p1,body .f4 .p2,body .f4 .p3 {
     }
 }
 
-.about .banner-about-m .slogan {
+.about .banner-about-m .sloga {
     font-size: 24px;
 }
 

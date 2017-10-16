@@ -646,6 +646,7 @@ body {
         margin: 1em;
         text-align: center;
     }
+
     .link-list {
         width: 550px;
         margin: 20px auto 40px;
@@ -668,7 +669,7 @@ body {
         }
     }
     .explain {
-        text-align: left;
+        text-align: center;
         p {
             color: #faf5f1;
         }
@@ -880,7 +881,7 @@ body{
         @include screen_small {
             display: block;
         }
-        .slogan {
+        .sloga{
             font-size: 24px; 
         }
         .view {
