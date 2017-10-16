@@ -647,18 +647,28 @@ body {
         text-align: center;
     }
     .link-list {
-        display: flex;
-        align-items: center;
-        width: 650px;
+        width: 550px;
         margin: 20px auto 40px;
+        overflow: hidden;
         .link-item {
             float: left;
-            flex: 1;
+            margin-right: 65px;
+            height: 40px;
+            line-height: 40px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        .wechat,.qq,.mobile {
+            float: left;
+            margin-right: 15px;
+        }
+        p {
+            float: left;
         }
     }
     .explain {
         text-align: left;
-        float: left;
         p {
             color: #faf5f1;
         }
@@ -691,12 +701,6 @@ body {
         .explain {
             text-align: center;
             float: none;
-        }
-        .col-right {
-            float: none; 
-            margin-top:5px;
-            text-align: center;
-            width: 100%;
         }
     }
     @include screen_small {
